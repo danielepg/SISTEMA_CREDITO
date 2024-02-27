@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../bootstrap532/css/bootstrap.min.css">
 </head>
 <body>
-    <div class=" container ">
+    <div class=" container border ">
     hola mundo PRUEBA
     </div>
     
