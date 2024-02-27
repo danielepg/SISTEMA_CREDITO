@@ -7,6 +7,6 @@
     <<link rel="stylesheet" href="bootstrap532/css/bootstrap.min.css">
 </head>
 <body>
-    hola mundo XD
+    hola mundo PRUEBA
 </body>
 </html>
