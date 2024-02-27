@@ -6,6 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    hola mundo XD
+    hola mundo PRUEBA
 </body>
 </html>
