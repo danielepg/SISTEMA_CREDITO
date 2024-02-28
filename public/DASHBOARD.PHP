@@ -9,8 +9,8 @@
 </head>
 <body>
 
-<div class="navbar">
-  <a class="active" href="#">Inicio</a>
+<div class="navbard">
+  <a class="actived" href="#">Inicio</a>
   <a href="#">CREDITO</a>
   <a href="#">SERVICIO</a>
   <a href="EMPLEADO.PHP">EMPLEADOS</a>
