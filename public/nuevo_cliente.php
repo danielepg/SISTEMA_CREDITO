@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Empleado</title>
+    <title>Nuevo Cliente</title>
 
     <link rel="stylesheet" href="./css/DASHBOARD.css">
     <link rel="stylesheet" href="../bootstrap532/css/bootstrap.min.css">
@@ -13,13 +13,13 @@
 
 <body class="bg-body-secondary">
 
-    <?php include 'dashboard_usuarios.php'; ?>
+    <?php include 'dashboard_clientes.PHP'; ?>
 
     <br><br><br>
 
     <div>
         <div class="container shadow p-5 bg-white">
-        <h2>Formulario de Empleado</h2>
+        <h2>Nuevo Cliente</h2>
         <br>
         <form>
             <div class="form-group mb-2">
