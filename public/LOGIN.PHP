@@ -8,7 +8,7 @@
 
   <style>
     .margen {
-      margin: 30px; /* Añade un margen de 10 píxeles a todos los lados del div */
+      margin: 30px;
     }
   </style>
 
