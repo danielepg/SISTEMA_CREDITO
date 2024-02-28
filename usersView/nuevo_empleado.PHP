@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Empleado</title>
 
-    <link rel="stylesheet" href="./css/DASHBOARD.css">
+    <link rel="stylesheet" href="../public/css/DASHBOARD.css">
     <link rel="stylesheet" href="../bootstrap532/css/bootstrap.min.css">
 
 </head>
@@ -19,7 +19,7 @@
 
     <div>
         <div class="container shadow p-5 bg-white">
-        <h2>Formulario de Empleado</h2>
+        <h2>Nuevo Empleado</h2>
         <br>
         <form>
             <div class="form-group mb-2">
@@ -31,25 +31,17 @@
                 <input type="text" class="form-control" id="apellido" placeholder="Ingrese el apellido">
             </div>
             <div class="form-group mb-2">
-                <label for="email">Correo Electrónico:</label>
+                <label for="email">Dirección:</label>
                 <input type="email" class="form-control" id="email" placeholder="Ingrese el correo electrónico">
             </div>
             <div class="form-group mb-2">
                 <label for="telefono">Teléfono:</label>
                 <input type="text" class="form-control" id="telefono" placeholder="Ingrese el teléfono">
             </div>
-            <div class="form-group mb-2">
-                <label for="departamento">Departamento:</label>
-                <select class="form-control" id="departamento">
-                    <option>Seleccionar departamento</option>
-                    <option>Ventas</option>
-                    <option>Marketing</option>
-                    <option>Finanzas</option>
-                    <option>Recursos Humanos</option>
-                </select>
-            </div>
+
             <br>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <a href="empleados.php" class="float-end btn border btn-outline-light text-black">Regresar</a>
+            <button type="submit" class="btn btn-primary">Guardar Empleado</button>
         </form>
         </div>
         </div>

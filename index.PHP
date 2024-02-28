@@ -16,8 +16,8 @@
 
 </head>
 
-<body class="position-fixed top-0 end-0 start-0 bottom-0 d-flex justify-content-center align-items-center">
-  <div class=" shadow p-3 " style="width: 500px;">
+<body class="bg-body-secondary position-fixed top-0 end-0 start-0 bottom-0 d-flex justify-content-center align-items-center">
+  <div class=" shadow p-3 bg-white" style="width: 500px;">
     <form class="form-signin">
       <div class="margen">
         <h1 class="h3 mb-3 font-weight-normal text-center">Iniciar sesión</h1>
@@ -28,7 +28,9 @@
         <label for="inputPassword" class="sr-only">Contraseña</label>
         <input type="password" id="inputPassword" class="form-control mb-3" placeholder="Contraseña" required>
         <br>
-        <button class="btn btn-lg btn-success btn-block" type="submit">Iniciar sesión</button>
+        <button class="btn btn-lg btn-success btn-block" type="submit">
+          <a class=" text-decoration-none text-white" href="../public/creditos.php">Iniciar sesión</a>
+        </button>
       </div>
     </form>
   </div>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuario</title>
 
-    <link rel="stylesheet" href="./css/DASHBOARD.css">
+    <link rel="stylesheet" href="../public/css/DASHBOARD.css">
     <link rel="stylesheet" href="../bootstrap532/css/bootstrap.min.css">
 
 </head>
@@ -17,7 +17,10 @@
 
     <br><br><br>
 
-    <div>
+    <div class="container p-0 mb-3">
+    <a href="usuarios.php" class="btn border-black text-black">Regresar</a>
+    </div>
+
         <div class="container shadow px-5 py-3 mb-2 bg-white">
         <h2 class="text-center">Editar Usuario</h2>
         
@@ -64,7 +67,7 @@
         </div>
 
 
-        </div>
+    
 
 
   
