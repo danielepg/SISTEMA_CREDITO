@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="bootstrap/css/DASHBOARD.css">
 <?php include 'DASHBOARD.php'; ?>
 
 <!DOCTYPE html>
