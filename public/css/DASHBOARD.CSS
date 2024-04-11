@@ -1,23 +1,28 @@
 
-.navbard {
-  background-color: #43C44F;
+.ulp {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  background-color: #04AA6D;
 }
 
-.navbard a {
+.ulp li {
   float: left;
+}
+
+.ulp li a {
   display: block;
-  color: #f2f2f2;
+  color: white;
   text-align: center;
-  padding: 14px 20px;
+  padding: 14px 16px;
   text-decoration: none;
 }
 
-.navbard a:hover {
-  background-color: #ddd;
-  color: black;
+.ulp li a:hover:not(.activep) {
+  background-color: #111;
 }
 
-.actived {
-  background-color: #11911C;
+.activep {
+  color: white;
 }
