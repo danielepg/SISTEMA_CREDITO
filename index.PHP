@@ -7,20 +7,22 @@ if(isset($_POST['nombre_usuario']) && isset($_POST['password_usuario']))
     $query = "SELECT * FROM usuarios WHERE nombre_usuario = '$nombre_usuario' AND password_usuario = '$password_usuario'";
     $resultado = mysqli_query($conn, $query);
 
-    /*if ($resultado->num_rows == 1) {
+    if ($resultado->num_rows == 1) {
         $fila = $resultado->fetch_assoc();
         $IDUSUARIO = $fila['ID_USUARIO'];
         $IDROL = $fila['ID_ROL'];
 
 		$_SESSION['nombre_usuario'] = $nombre_usuario;
 		$_SESSION['ID_USUARIO']= $IDUSUARIO;
-		$_SESSION['ID_ROL'] = $IDROL;*/
+		$_SESSION['ID_ROL'] = $IDROL;
 		
 		header("Location: ./public/dashcredito.php"); // Redirigir a la página de bienvenida
     } else {
         
-		//header("Location: index.php");
+		header("Location: index.php");
     }
+
+  }
 ?>
 
 

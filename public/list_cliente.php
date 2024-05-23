@@ -33,6 +33,7 @@
                 <th>NOMBRE</th>
                 <th>APELLIDO</th>
                 <th>DPI</th>
+                <th>NIT</th>
                 <th>DIRECCION</th>
                 <th>TELEFONO</th>
                 <th>ESTADO</th>
@@ -51,6 +52,7 @@
                     <td><?php echo $row['Nombre']  ?></td>
                     <td><?php echo $row['Apellido']  ?></td>
                     <td><?php echo $row['DPI']  ?></td>
+                    <td><?php echo $row['Nit']  ?></td>
                     <td><?php echo $row['Direccion']  ?></td>
                     <td><?php echo $row['Telefono']  ?></td>
                     <td><?php echo $row['Estado']  ?></td>
