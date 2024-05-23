@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #04AA6D;
+  background-color: rgb(14, 175, 49);
 }
 
 .ulp li {
@@ -20,7 +20,7 @@
 }
 
 .ulp li a:hover:not(.activep) {
-  background-color: #111;
+  background-color: #2b9c08;
 }
 
 .activep {

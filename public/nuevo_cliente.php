@@ -19,40 +19,47 @@
 
     <div>
         <div class="container shadow p-5 bg-white">
-        <h2>Nuevo Cliente</h2>
-        <br>
-        <form>
-            <div class="form-group mb-2">
-                <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre">
-            </div>
-            <div class="form-group mb-2">
-                <label for="apellido">Apellido:</label>
-                <input type="text" class="form-control" id="apellido" placeholder="Ingrese el apellido">
-            </div>
-            <div class="form-group mb-2">
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" class="form-control" id="email" placeholder="Ingrese el correo electrónico">
-            </div>
-            <div class="form-group mb-2">
-                <label for="telefono">Teléfono:</label>
-                <input type="text" class="form-control" id="telefono" placeholder="Ingrese el teléfono">
-            </div>
-            <div class="form-group mb-2">
-                <label for="departamento">Departamento:</label>
-                <select class="form-control" id="departamento">
-                    <option>Seleccionar departamento</option>
-                    <option>Ventas</option>
-                    <option>Marketing</option>
-                    <option>Finanzas</option>
-                    <option>Recursos Humanos</option>
-                </select>
-            </div>
+            <h2>Nuevo Cliente</h2>
             <br>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
+            <form action="../backend/insert_cliente.php" method="POST">
+            
+                <div class="form-group mb-2">
+                    <label for="Nombre">Nombre:</label>
+                    <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Ingrese el nombre">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="Apellido">Apellido:</label>
+                    <input type="text" class="form-control" name="Apellido" id="Apellido" placeholder="Ingrese el apellido">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="DPI">DPI:</label>
+                    <input type="text" class="form-control" name="DPI" id="DPI" placeholder="Ingrese el DPI">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="Nit">Nit:</label>
+                    <input type="numeric" class="form-control" name="Nit" id="Nit" placeholder="Ingrese el Nit">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="Direccion">Direccion:</label>
+                    <input type="text" class="form-control" name="Direccion" id="Direccion" placeholder="Ingrese la Direccion">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="Telefono">Teléfono:</label>
+                    <input type="text" class="form-control" name="Telefono" id="Telefono" placeholder="Ingrese el teléfono">
+                </div>
+                <div class="form-group mb-2">
+                    <label for="Estado">Estado empleado:</label>
+                    <select class="form-control" name="Estado" id="Estado">
+                        <option>Seleccionar estado</option>
+                        <option value="A">Activo</option>
+                        <option value="I">Inactivo</option>
+                    </select>
+                </div>
+                <br>
+                <button name="ingresar" value="ingresar" type="submit" class="btn btn-primary">Ingresar</button>
+            </form>
         </div>
-        </div>
+    </div>
 
 
 

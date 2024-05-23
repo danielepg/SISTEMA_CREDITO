@@ -14,9 +14,8 @@
 </head>
 
 <body class=" bg-body-secondary ">
-    <BR></BR>
 
-<h2 class="text-center">HISTORIAL DE CREDITOS</h2>
+<h2 class="text-center">Clientes</h2>
 </br>
 
     <div class="container-fluid px-3">
@@ -36,7 +35,6 @@
                 <th>DPI</th>
                 <th>DIRECCION</th>
                 <th>TELEFONO</th>
-                <th>TIPO CLIENTE</th>
                 <th>ESTADO</th>
                 <th>ACCIONES</th>
             </tr>
@@ -55,7 +53,6 @@
                     <td><?php echo $row['DPI']  ?></td>
                     <td><?php echo $row['Direccion']  ?></td>
                     <td><?php echo $row['Telefono']  ?></td>
-                    <td><?php echo $row['Tipo_cliente']  ?></td>
                     <td><?php echo $row['Estado']  ?></td>
                     
                     <td>

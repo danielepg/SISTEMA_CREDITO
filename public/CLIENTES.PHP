@@ -1,4 +1,4 @@
-<?php include 'DASHBOARD.php'; ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horizontal Form</title>
     <link rel="stylesheet" href="../bootstrap532/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/DASHBOARD.css">
+    <link rel="stylesheet" href="../bootstrap532/css/bootstrap.min.css">
 </head>
 
 <body>
+<?php include 'dashboard_clientes.php'; ?>
     <form action="#">
         
         <div class="row m-2">

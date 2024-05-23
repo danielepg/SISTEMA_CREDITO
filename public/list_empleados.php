@@ -14,9 +14,8 @@
 </head>
 
 <body class=" bg-body-secondary ">
-    <BR></BR>
 
-<h2 class="text-center">HISTORIAL DE CREDITOS</h2>
+<h2 class="text-center">Clientes</h2>
 </br>
 
     <div class="container-fluid px-3">
@@ -33,38 +32,38 @@
                 <th>ID</th>
                 <th>NOMBRE</th>
                 <th>APELLIDO</th>
-                <th>DPI</th>
-                <th>DIRECCION</th>
                 <th>TELEFONO</th>
-                <th>TIPO CLIENTE</th>
+                <th>DIRECCION</th>
+                <th>NIT</th>
+                <th>DPI</th>
                 <th>ESTADO</th>
                 <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
             <?php 
-                $query = "SELECT * FROM clientes";
+                $query = "SELECT * FROM empleados";
                 $resultado_cliente = mysqli_query($conn, $query);
 
                 while($row = mysqli_fetch_array($resultado_cliente)) { ?>
 
                 <tr>
-                    <td><?php echo $row['ClienteID'] ?></td>
-                    <td><?php echo $row['Nombre']  ?></td>
-                    <td><?php echo $row['Apellido']  ?></td>
-                    <td><?php echo $row['DPI']  ?></td>
-                    <td><?php echo $row['Direccion']  ?></td>
-                    <td><?php echo $row['Telefono']  ?></td>
-                    <td><?php echo $row['Tipo_cliente']  ?></td>
-                    <td><?php echo $row['Estado']  ?></td>
+                    <td><?php echo $row['empleadoID'] ?></td>
+                    <td><?php echo $row['nombre_empleado']  ?></td>
+                    <td><?php echo $row['apellido_empleado']  ?></td>
+                    <td><?php echo $row['telefono_empleado']  ?></td>
+                    <td><?php echo $row['direccion_empleado']  ?></td>
+                    <td><?php echo $row['nit_empleado']  ?></td>
+                    <td><?php echo $row['dpi_empleado']  ?></td>
+                    <td><?php echo $row['estado_empleado']  ?></td>
                     
                     <td>
 
                     <div class="btn-group">
-                    <a href="editcliente.php?ID=<?php echo $row['ClienteID']?>" class="btn btn-primary">
+                    <a href="edit_empleado.php?empleadoID=<?php echo $row['empleadoID']?>" class="btn btn-primary">
                         <i class="fas fa-marker"></i>
                         </a>
-                        <a href="deletecliente.php?ID=<?php echo $row['ClienteID']?>" class="btn btn-danger">
+                        <a href="deletecliente.php?empleadoID=<?php echo $row['empleadoID']?>" class="btn btn-danger">
                         <i class="far fa-trash-alt"></i>
                     </a>
                     </div>                 
