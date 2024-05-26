@@ -2,8 +2,8 @@
 // Datos de conexión
 $servername = "localhost";
 $username = "root";
-$password = "adminx";
-$database = "creditodbfinal";
+$password = "";
+$database = "gestorcreditos";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $database);
