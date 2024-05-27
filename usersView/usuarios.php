@@ -2,12 +2,20 @@
 include '../backend/config.php'; 
 
 if(isset($_POST["guardar"])){
-    mysqli_query($conn, "INSERT INTO usuarios (nombre_usuario, password_usuario, estado_usuario, rol_usuario, fecha_guardado_usuario)value('".$_POST["nombre_usuario"]."', '".$_POST["password_usuario"]."', '".$_POST["estado_usuario"]."', '".$_POST["rol_usuario"]."', '".date("Y-m-d")."');");
+    mysqli_query($conn, "INSERT INTO usuarios (empleadoID, nombre_usuario, password_usuario, estado_usuario, rol_usuario, fecha_guardado_usuario)value('".$_POST["empleadoID"]."', '".$_POST["nombre_usuario"]."', '".$_POST["password_usuario"]."', '".$_POST["estado_usuario"]."', '".$_POST["rol_usuario"]."', '".date("Y-m-d")."');");
     header("Location: ../usersView/usuarios.php");
     exit;
 }
 
 $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
+
+$sql00 = mysqli_query($conn,"SELECT `empleadoID`, `nombre_empleado` FROM `empleados` ORDER BY `nombre_empleado` ASC");
+
+$ver_usu = mysqli_query($conn,"SELECT `empleadoID` FROM `usuarios`");
+$datos = array();
+while ($row = $ver_usu->fetch_assoc()) {
+    $datos[] = $row["empleadoID"];
+} 
 ?>
 
 <!DOCTYPE html>
@@ -22,11 +30,26 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
     <link rel="stylesheet" href="../bootstrap532/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <style>
+.curved {
+  position: relative;
+  background: #2c3e50;
+  height: 16vh;
+}
 
+.curved::after {
+  content: '';
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  height: 53%;
+}
     </style>
 </head>
 
-<body class=" bg-body-secondary ">
+<body class="bg-white">
 
     <?php include 'dashboard_usuarios.php'; ?>
 
@@ -43,6 +66,29 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
       </div>
       <div class="modal-body">
         
+        <div class="mb-2">
+            <label for="cero" class="form-label">Para empleado:</label>
+            <select name="empleadoID" id="cero" class="form-control" required>
+            <option value=""></option>
+
+            <?php 
+
+            foreach($sql00 as $row) {
+                
+            if (in_array($row['empleadoID'], $datos)) {
+                continue;
+            }
+
+            ?>
+            <option value="<?php echo $row['empleadoID'];?>"><?php echo $row['nombre_empleado'];?></option>
+            <?php
+                //}
+            }
+            ?>
+
+            </select> 
+        </div>
+
         <div class="mb-2">
             <label for="uno" class="form-label">Nombre del usuario</label>
             <input class="form-control" type="text" id="uno" name="nombre_usuario">
@@ -70,7 +116,7 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        <button type="submit" name="guardar" class="btn btn-info">Guardar Usuario</button>
+        <button type="submit" name="guardar" class="btn text-white" style="background-color: #2c3e50b0;">Guardar Usuario</button>
       </div>
       </form>
 
@@ -81,8 +127,8 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
 
     <br><br>
 
-    <div class="container bg-white py-2 rounded ">
-    <button type="button" class="btn btn-info float-end " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <div class="container  bg-body-secondary  py-2 rounded ">
+    <button type="button" style="background-color: #2c3e50b0;" class="btn text-white float-end " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   Crear Nuevo Usuario
 </button>
     <h2 class="w-auto">Lista usuarios</h2>
@@ -91,16 +137,17 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
    
     <br>
 
-    <div class="bg-white px-3 container overflow-auto" >
+    <div class=" bg-body-secondary  px-3 container overflow-auto" >
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre_del_usuario</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Rol</th>
-                    <th scope="col">Fecha_registro</th>
+                    <th class=" bg-body-secondary " scope="col">#</th>
+                    <th class=" bg-body-secondary " scope="col">ID</th>
+                    <th class=" bg-body-secondary " scope="col">ID_del_empleado</th>
+                    <th class=" bg-body-secondary " scope="col">Nombre_del_usuario</th>
+                    <th class=" bg-body-secondary " scope="col">Estado</th>
+                    <th class=" bg-body-secondary " scope="col">Rol</th>
+                    <th class=" bg-body-secondary " scope="col">Fecha_registro</th>
            
                 </tr>
             </thead>
@@ -112,12 +159,13 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
                     $num++;
                 ?>
                 <tr>
-                    <td style="padding: 8px;" scope="row"><?= $num ?></td>
-                    <td style="padding: 8px;"><?= $user["usuarioID"] ?></td>
-                    <td style="padding: 8px;"><?= $user["nombre_usuario"] ?></td>
-                    <td style="padding: 8px;"><?= $user["estado_usuario"] ?></td>
-                    <td style="padding: 8px;"><?= $user["rol_usuario"] ?></td>
-                    <td style="padding: 8px;"><?= $user["fecha_guardado_usuario"] ?></td>
+                    <td class=" bg-body-secondary " style="padding: 8px;" scope="row"><?= $num ?></td>
+                    <td class=" bg-body-secondary " style="padding: 8px;"><?= $user["usuarioID"] ?></td>
+                    <td class=" bg-body-secondary " style="padding: 8px;"><?= $user["empleadoID"] ?></td>
+                    <td class=" bg-body-secondary " style="padding: 8px;"><?= $user["nombre_usuario"] ?></td>
+                    <td class=" bg-body-secondary " style="padding: 8px;"><?= $user["estado_usuario"] ?></td>
+                    <td class=" bg-body-secondary " style="padding: 8px;"><strong><?= $user["rol_usuario"] ?></strong></td>
+                    <td class=" bg-body-secondary " style="padding: 8px;"><?= $user["fecha_guardado_usuario"] ?></td>
 </tr>
                 <?php } ?>
                
@@ -135,8 +183,8 @@ $usuarios = mysqli_query($conn, "SELECT * FROM usuarios");
         </ul>
     </nav>
 
-    <footer style="background-color: lightslategray; border-top-right-radius:20px; border-top-left-radius:20px;" class=" shadow py-2 position-fixed bottom-0 start-0 end-0 ">
-    <h4 class="text-center">2024</h4>
+    <footer style="background-color: #4c6176; border-top-right-radius:20px; border-top-left-radius:20px;" class=" shadow py-2 position-fixed bottom-0 start-0 end-0 ">
+    <h4 class="text-center text-white">&copy 2024</h4>
 </footer>
 
 <script src="../bootstrap532/js/bootstrap.bundle.min.js"></script>
