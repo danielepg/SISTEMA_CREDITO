@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="../public/css/DASHBOARD.css">
     <link rel="stylesheet" href="../bootstrap532/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
 
 </head>
 <style>
@@ -38,33 +39,38 @@ if ($result->num_rows > 0) {
     // Mostrar datos en cajas de texto
     while($row = $result->fetch_assoc()) {
         ?>
+        
         <div class="container shadow p-5 bg-white" style="margin-top: 20px; border-radius: 10px;">
-        <h1 class="text-center" for="EMPRESA">DETALLES DE LA EMPRESA</h1>
+        <h1 class="text-center" for="EMPRESA">EMPRESA</h1>
+        <br>
+
+        <a class="btn btn-primary" href="nueva_empresa.php"><i class="bi bi-building-fill-add"></i> Ingresar Sucursal</a>
         <br>
         <div class="row mt-3 container">
+            
         <div class="form-group col-md-4">
             <label for="Nombre">Nombre Empresa:</label>
-            <input type="text" class="form-control" id="Nombre" value="<?php echo $row['nombre_empresa']; ?>">
+            <input type="text" class="form-control" id="Nombre" readonly value="<?php echo $row['nombre_empresa']; ?>">
         </div>
         <div class="form-group col-md-4">
             <label for="Direccion">Direccion</label>
-            <input type="text" class="form-control" id="Direccion" value="<?php echo $row['direccion_empresa']; ?>">
+            <input type="text" class="form-control" id="Direccion" value="<?php echo $row['direccion_empresa']; ?>" readonly>
         </div>
         </div>
 
         <div class="row mt-3 container">
         <div class="form-group col-md-4">
             <label for="Telefono">Telefono</label>
-            <input type="text" class="form-control" id="Telefono" value="<?php echo $row['telefono_emp']; ?>">
+            <input type="text" class="form-control" id="Telefono" readonly value="<?php echo $row['telefono_emp']; ?>">
         </div>
         <div class="form-group col-md-4">
             <label for="NIT">NIT</label>
-            <input type="text" class="form-control" id="Nit" value="<?php echo $row['nit']; ?>">
+            <input type="text" class="form-control" id="Nit" readonly value="<?php echo $row['nit']; ?>">
         </div>
         </div>
         <div class="form-group col-md-4 mt-3">
             <label for="Correo">Correo</label>
-            <input type="text" class="form-control" id="Correo" value="<?php echo $row['correo']; ?>">
+            <input type="text" class="form-control" id="Correo" readonly value="<?php echo $row['correo']; ?>">
         </div>
         </div>
         <br>
@@ -77,9 +83,11 @@ if ($result->num_rows > 0) {
 
 
     <div class="container shadow p-5 bg-white" style="margin-top: 20px; border-radius: 10px;">
-    <h2 class="text-center">SUCURSALES</h2>
+    <h1 class="text-center">SUCURSALES</h1>
+    <br>
     <form class="d-flex">
-    <input class="form-control me-2 light-table-filter" id="myInput" onkeyup="myFunction()">
+        
+    <input class="form-control me-2 light-table-filter" placeholder="Buscar" id="myInput" onkeyup="myFunction()">
     <hr>
     </form>    
     <br/>
@@ -112,12 +120,12 @@ if ($result->num_rows > 0) {
                     <td><?php echo $row['correo']  ?></td>                    
                     <td>
 
-                    <div class="btn-group">
-                    <a href="editcliente.php?ID=<?php echo $row['empresaID']?>" class="btn btn-primary">
-                        <i class="fas fa-marker"></i>
+                    <div class="">
+                    <a href="edit_empresa.php?empresaID=<?php echo $row['empresaID']?>" class="btn btn-warning">
+                    <i class="bi bi-pencil-square"></i>
                         </a>
-                        <a href="deletecliente.php?ID=<?php echo $row['empresaID']?>" class="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>
+                        <a href="deletecliente.php?empresaID=<?php echo $row['empresaID']?>" class="btn btn-danger">
+                        <i class="bi bi-trash-fill"></i>
                     </a>
                     </div>                 
 

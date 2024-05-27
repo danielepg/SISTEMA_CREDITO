@@ -3,7 +3,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: green;
+  background-color: #2B7A0B;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -16,7 +16,7 @@
 }
 
 .dropdown-content a {
-  color: green;
+  color: #2B7A0B;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
