@@ -60,14 +60,17 @@ if(isset($_POST['actualizar']))
     <link rel="stylesheet" href="../bootstrap532/css/bootstrap.min.css">
 </head>
 
+<body>
+
 <h2 class="container shadow p-2 bg-white text-center" style="margin-top: 20px;">ACTUALIZAR EMPLEADOS</h2>
 
-<div class="container shadow p-5 bg-white" style="margin-top: 20px;">
 
 
 <form action="edit_empleado.php?empleadoID=<?php echo $_GET['empleadoID']; ?>" method="POST">
+<div class="container shadow p-5 bg-white" style="margin-top: 20px;">
+
     <div class="row mt-3">
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-6">
             <label for="nombre_empleado">Nombre:</label>
             <input type="text" class="form-control" id="nombre_empleado" name="nombre_empleado" value="<?php echo $nombre_empleado; ?>" placeholder="Ingrese el nombre">
         </div>
@@ -108,6 +111,7 @@ if(isset($_POST['actualizar']))
     </div>
     <br>
     <button name="actualizar" value="actualizar" type="submit" class="btn btn-primary">Ingresar</button>
+    </div>
 </form>
-            </div>
+            
 </body>

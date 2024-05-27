@@ -50,7 +50,7 @@ if ($conn->connect_error) {
 </style>
 <body>
 
-<h2 class="container shadow p-2 bg-white text-center" style="margin-top: 20px;">CREDITOS</h2>
+<h2 class="container shadow p-2 bg-white text-center" style="margin-top: 20px;">PAGOS</h2>
 
 <div class="container shadow p-5 bg-white" style="margin-top: 20px;">
 

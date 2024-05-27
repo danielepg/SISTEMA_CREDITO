@@ -25,14 +25,14 @@
 </style>
 <body>
 
-<h2 class="container shadow p-2 bg-white text-center" style="margin-top: 20px;">EMPLEADOS</h2>
 
-<div class="container shadow p-5 bg-white" style="margin-top: 20px;">
 
+<div class="container shadow p-5 bg-white" style="margin-top: 20px; border-radius: 8px;">
+<h2 class="container shadow p-2 bg-white text-center" >EMPLEADOS</h2>
 
 <form action="../backend/insert_empleado.php" method="POST">
-    <div class="row mt-3">
-        <div class="form-group col-md-4">
+    <div class="row mt-5">
+        <div class="form-group col-md-6">
             <label for="nombre_empleado">Nombre:</label>
             <input type="text" class="form-control" id="nombre_empleado" name="nombre_empleado" placeholder="Ingrese el nombre">
         </div>
