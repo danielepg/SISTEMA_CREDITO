@@ -1,21 +1,6 @@
 <?php include 'dashboard_clientes.php'; ?>
 
-<?php include '../backend/config.php'; ?>
-
-<?php 
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "GestorCreditos";
-
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Comprobar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+<?php include '../backend/config.php';
 	$sql="SELECT ClienteID, Nombre, Nit from Clientes";
 	$result=mysqli_query($conn,$sql);
 ?>

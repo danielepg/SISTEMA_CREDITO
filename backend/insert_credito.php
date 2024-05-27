@@ -1,5 +1,4 @@
 <?php
-
 include('config.php');
 
 if(isset($_POST['ingresar']))
@@ -14,10 +13,10 @@ if(isset($_POST['ingresar']))
     $Estado = $_POST['Estado'];
 
     // Preparar la sentencia
-    $stmt = $conn->prepare("INSERT INTO Creditos(ClienteID, Monto, MontoFinal, Monto_parcial, FechaInicio, Plazos, Interes, Estado) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO Creditos(ClienteID, Monto, MontoFinal, Monto_parcial, FechaInicio, Plazos, Interes, Estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
     // Vincular los parámetros
-    $stmt->bind_param("iiiisiis", $ClienteID, $Monto, $MontoFinal, $Monto_parcial, $FechaInicio, $Plazos, $Interes, $Estado);
+    $stmt->bind_param("idddsdds", $ClienteID, $Monto, $MontoFinal, $Monto_parcial, $FechaInicio, $Plazos, $Interes, $Estado);
 
 
     if ($stmt->execute()) {
@@ -28,28 +27,22 @@ if(isset($_POST['ingresar']))
         echo "Error en la ejecución: " . $stmt->error;
     }
 
-    if(!$resultado) 
-    {
-        die("INSERCIÓN FALLIDA");
-    }
 
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Fecha inicial
 $fechaInicial = new DateTime('2024-05-22');
 
-
 $fechaActual = new DateTime();
-$fechaActual->format('Y-m-d')
+$fechaActual->format('Y-m-d');
 
 // Número de pagos y monto de cada pago
-$numPagos = 6;
-$montoPago = 500;
 
 // Arreglo para almacenar las fechas de los pagos
-$fechasPagos = [];
 
-for ($i = 0; $i < $numPagos; $i++) {
+$fechasPagos = []; // Inicializamos el array antes del bucle
+
+for ($i = 0; $i < $Plazos; $i++) {
     // Clonamos la fecha inicial para no modificarla directamente
     $fechaPago = clone $fechaActual;
     // Añadimos el número de meses correspondiente
@@ -57,6 +50,7 @@ for ($i = 0; $i < $numPagos; $i++) {
     // Añadimos la fecha del pago al arreglo
     $fechasPagos[] = $fechaPago->format('Y-m-d');
 }
+
 
 
 $creditoID = $lastInsertId; // Por ejemplo
@@ -67,7 +61,7 @@ $fechaActual = $fechaActual; // Fecha actual
 $recargosID = 1; // Por ejemplo
 
 // Preparar la declaración SQL
-$stmt = $conn->prepare("INSERT INTO TuTabla (CreditoID, ClienteID, MontoPago, Recargo, FechaPago, FechaActual, RecargosID) VALUES (?, ?, ?, ?, ?, ?, ?)");
+$stmt = $conn->prepare("INSERT INTO transacciones (CreditoID, ClienteID, MontoPago, Recargo, FechaPago, FechaActual, RecargosID) VALUES (?, ?, ?, ?, ?, ?, ?)");
 
 // Verificar si la declaración se preparó correctamente
 if ($stmt === false) {
@@ -77,7 +71,7 @@ if ($stmt === false) {
 foreach ($fechasPagos as $index => $fecha) {
 
 // Vincular los parámetros a la declaración
-$stmt->bind_param("iiddsdi", $creditoID, $clienteID, $montoPago, $recargo, $fecha, $fechaActual, $recargosID);
+$stmt->bind_param("iiddssi", $creditoID, $clienteID, $montoPago, $recargo, $fecha, $fechaActual, $recargosID);
 
 // Ejecutar la declaración
 if ($stmt->execute()) {
@@ -96,7 +90,7 @@ $conn->close();
     // Cerrar la sentencia preparada
     $stmt->close();
 
-    header("Location: ../public/list_cliente.php");
+    header("Location: ../public/list_credito.php");
 }
 
 ?>
