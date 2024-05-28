@@ -12,23 +12,45 @@ include '../backend/config.php'; ?>
     <link rel="stylesheet" href="../public/css/DASHBOARD.css">
     <link rel="stylesheet" href="../bootstrap532/css/bootstrap.min.css">
 
+    <style>
+        table th,td{
+            background-color: #e8ebef !important;
+        }
+    </style>
 </head>
 
-<body class=" bg-body-secondary ">
+<body class=" bg-white ">
+<footer style="background-color: rgb(31 142 55); border-top-right-radius:20px; border-top-left-radius:20px;" class=" shadow py-2 position-fixed bottom-0 start-0 end-0 ">
+    <h5 class="text-center text-white">&copy 2024</h5>
+</footer>
 
-<h2 class="text-center">Creditos</h2>
+<br>
+
+
 </br>
 
-    <div class="container-fluid px-3">
+<div class="w-100 px-3">
+<h3 class="text-center float-center"><strong> Lista Creditos Activos. </strong></h3>
+<div style="clear: both;"></div>
+</div>
+<br>
 
-    <form class="d-flex">
-    <input class="form-control me-2 light-table-filter" id="myInput" onkeyup="myFunction()">
-    <hr>
-    </form>    
-    <br/>
+    <div class="container px-4 py-1 shadow" style="background-color: #e8ebef !important;">
+
+    <form class="">
+        <label class="form-label">Filtro de creditos</label>
+    <input class="form-control me-2 light-table-filter w-50" id="myInput" placeholder="Escribe algo ..." onkeyup="myFunction()">
+
+    </form>   
+    
+    </div>
+    <br>
+
+    <div class="container p-4 shadow overflow-auto" style="background-color: #e8ebef !important;">
+
         
         <table class="table table-hover table_id" id="myTable">
-        <thead class="table-dark">
+        <thead class="">
             <tr>
 
                 <th>ID</th>
@@ -40,7 +62,7 @@ include '../backend/config.php'; ?>
                 <th>ACCIONES</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="">
             <?php 
                 $query = "SELECT * FROM creditos 
                 INNER JOIN clientes on creditos.ClienteID = clientes.ClienteID WHERE clientes.Estado = 'C'";
@@ -52,10 +74,10 @@ include '../backend/config.php'; ?>
                 <tr>
                     <td><?php echo $row['CreditoID']  ?></td>
                     <td><?php echo $row['Nombre']. $row['Apellido'] ?></td>                    
-                    <td><?php echo $row['Monto']  ?></td>
-                    <td><?php echo $row['Monto_parcial']  ?></td>
-                    <td><?php echo $row['Plazos']  ?></td>
-                    <td><a href="../public/list_pagos.php?id=<?php echo $row['CreditoID']  ?>" class="btn border">Pagos</a></td>
+                    <td>Q. <?php echo $row['Monto']  ?></td>
+                    <td>Q. <?php echo $row['Monto_parcial']  ?></td>
+                    <td><?php echo $row['Plazos']  ?> meses</td>
+                    <td><a href="../public/list_pagos.php?id=<?php echo $row['CreditoID']  ?>" class="btn bg-white border">Ver Pagos</a></td>
                     
                     <td>
 
@@ -83,7 +105,7 @@ function myFunction() {
   filter = input.value.toUpperCase();
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
+  for (i = 1; i < tr.length; i++) {
     var display = "none";
     for (j = 0; j < 8; j++) {  // Cambia el número 5 por la cantidad de columnas que deseas filtrar
       td = tr[i].getElementsByTagName("td")[j];
@@ -103,15 +125,7 @@ function myFunction() {
 <script src="script.js"></script>
 <script src="../js/bootstrap.bundle.min.js"></script>
 
-<nav aria-label="Page navigation example" class="px-3">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-    </nav>
+
 
 </body>
 </html>

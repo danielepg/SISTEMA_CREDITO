@@ -29,7 +29,7 @@
 }
 
 .ulp li a{
-  background-color: rgb(31 142 55);
+  background-color: rgb(29 155 57);
   border-radius: 5px;
 }
 
@@ -37,10 +37,19 @@ a{
   font-weight: bold;
 }
 
+.curved {
+  position: relative;
+  background: rgb(31 142 55);
+  height: 16vh;
+  border-bottom-left-radius: 50% 34%;
+  border-bottom-right-radius: 50% 34%;
+}
+
 </style>
 
+<section class="curved">
 
-<ul class="ulp p-2 shadow ">
+<ul class="ulp px-2 pt-4">
   <li><a href="./dashcredito.php">
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
   <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5"/>
@@ -107,4 +116,6 @@ CLIENTES</a>
   <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
 </svg>  
   Cerrar Session</a></li>
-</ul
+</ul>
+
+</section>
