@@ -3,6 +3,16 @@
 <?php include '../backend/config.php';
 	$sql="SELECT ClienteID, Nombre, Nit from Clientes";
 	$result=mysqli_query($conn,$sql);
+
+
+    $rutaArchivo = '../PDF/1.pdf';
+
+if (file_exists($rutaArchivo)) {
+    echo "El archivo existe.";
+} else {
+    echo "El archivo no existe.";
+}
+
 ?>
 
 <html>
@@ -40,7 +50,7 @@ select {
     <h2 class="container shadow p-2 bg-white text-center" style="margin-top: 20px;">CREDITOS</h2>
 
     <div class="container shadow p-5 bg-white" style="margin-top: 20px;">
-        <form action="../backend/insert_credito.php" method="POST">
+        <form action="../backend/insert_credito.php" method="POST" enctype="multipart/form-data">
             <div class="row mt-3">
                 <div class="form-group col-md-6">
                     <label for="ClienteID">Cliente:</label>
@@ -100,7 +110,7 @@ select {
             <div class="row mt-3">
                 <div class="form-group col-md-6">
                     <label for="Rutadoc">Ingrese el documento:</label>
-                    <input type="file" class="form-control" id="Rutadoc" name="Rutadoc">
+                    <input type="file" class="form-control" accept="application/pdf" id="Rutadoc" name="Rutadoc">
                 </div>
             </div>
             <br>

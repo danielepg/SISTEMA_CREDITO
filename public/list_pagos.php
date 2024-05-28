@@ -16,7 +16,7 @@ include '../backend/config.php'; ?>
 
 <body class=" bg-body-secondary ">
 
-<h2 class="text-center">Creditos</h2>
+<h2 class="text-center">Clientes</h2>
 </br>
 
     <div class="container-fluid px-3">
@@ -31,19 +31,20 @@ include '../backend/config.php'; ?>
         <thead class="table-dark">
             <tr>
 
-                <th>ID</th>
-                <th>Cliente</th>
-                <th>Credito</th>
-                <th>Monto Parcial</th>
-                <th>Plazos</th>
+                <th>#CREDITO</th>
+                <th>CLIENTE</th>
+                <th>PAGO PARCIAL</th>
+                <th>Fecha Pago</th>
+                <th></th>
                 <th></th>
                 <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
             <?php 
-                $query = "SELECT * FROM creditos 
-                INNER JOIN clientes on creditos.ClienteID = clientes.ClienteID WHERE clientes.Estado = 'C'";
+                $query = "SELECT * FROM transacciones 
+                INNER JOIN clientes on transacciones.ClienteID = clientes.ClienteID 
+                INNER JOIN creditos on transacciones.CreditoID = creditos.CreditoID WHERE transacciones.CreditoID = ".$_GET["id"] ?? '0'." ";
 
                 $resultado_cliente = mysqli_query($conn, $query);
 
@@ -52,10 +53,10 @@ include '../backend/config.php'; ?>
                 <tr>
                     <td><?php echo $row['CreditoID']  ?></td>
                     <td><?php echo $row['Nombre']. $row['Apellido'] ?></td>                    
-                    <td><?php echo $row['Monto']  ?></td>
-                    <td><?php echo $row['Monto_parcial']  ?></td>
-                    <td><?php echo $row['Plazos']  ?></td>
-                    <td><a href="../public/list_pagos.php?id=<?php echo $row['CreditoID']  ?>" class="btn border">Pagos</a></td>
+                    <td><?php echo $row['MontoPago']  ?></td>
+                    <td><?php echo $row['FechaPago']  ?></td>
+                    <td></td>
+                    <td></td>
                     
                     <td>
 
