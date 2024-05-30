@@ -42,7 +42,7 @@ $usuarios = mysqli_query($conn, "SELECT * FROM empleados");
   <div class="modal-dialog">
     <div class="modal-content">
 
-<form method="post" action="">
+<form method="post" action="" id="myFormInsert">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear Empleado</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -50,33 +50,38 @@ $usuarios = mysqli_query($conn, "SELECT * FROM empleados");
       <div class="modal-body">
         
       <div class="mb-2">
-            <label for="uno" class="form-label">Nombre del empleado</label>
-            <input class="form-control" type="text" id="uno" name="nombre_empleado">
+      <label for="nombre_empleado">Nombre:</label>
+            <input type="text" class="form-control" id="nombre_empleado" name="nombre_empleado" placeholder="Ingrese el nombre" minlength="4" maxlength="50" required>
+            <span class=" alert-danger" id="nombre_empleadoError"></span>
         </div>
 
         <div class="mb-2">
-            <label for="dos" class="form-label">apellido del empleado</label>
-            <input class="form-control" type="text" id="dos" name="apellido_empleado">
+        <label for="apellido_empleado">Apellido:</label>
+            <input type="text" class="form-control" id="apellido_empleado" name="apellido_empleado" placeholder="Ingrese el apellido" minlength="4" maxlength="50" required>
+            <span class=" alert-danger" id="apellido_empleadoError"></span>
         </div>
 
         <div class="mb-2">
-            <label for="tres" class="form-label">Telefono</label>
-            <input class="form-control" type="text" id="tres" name="telefono_empleado">
+            <label for="telefono_empleado">Tell:</label>
+            <input type="text" class="form-control" id="telefono_empleado" name="telefono_empleado" placeholder="Ingrese el telefono" required>
+            <span class=" alert-danger" id="telefono_empleadoError"></span>
         </div>
 
         <div class="mb-2">
-            <label for="cuatro" class="form-label">DIrección</label>
-            <input class="form-control" type="text" id="cuatro" name="direccion_empleado">
+        <label for="direccion_empleado">Dirección:</label>
+            <input type="text" class="form-control" id="direccion_empleado" name="direccion_empleado" placeholder="Ingrese la dirección" required minlength="4" maxlength="100">
         </div>
 
         <div class="mb-2">
-            <label for="cinco" class="form-label">NIT</label>
-            <input class="form-control" type="text" id="cinco" name="nit_empleado">
+        <label for="nit_empleado">NIT:</label>
+            <input type="text" class="form-control" id="nit_empleado" name="nit_empleado" placeholder="Ingrese el NIT" minlength="5" maxlength="15" required>
+            <span class=" alert-danger" id="nit_empleadoError"></span>
         </div>
 
         <div class="mb-2">
-            <label for="seis" class="form-label">DPI</label>
-            <input class="form-control" type="text" id="seis" name="dpi_empleado">
+        <label for="dpi_empleado">DPI:</label>
+            <input type="number" class="form-control" id="dpi_empleado" name="dpi_empleado" placeholder="Ingrese el DPI" required>
+            <span class=" alert-danger" id="dpi_empleadoError"></span>
         </div>
 
         <div class="mb-2">
@@ -166,6 +171,77 @@ $usuarios = mysqli_query($conn, "SELECT * FROM empleados");
 </footer>
 
 <script src="../bootstrap532/js/bootstrap.bundle.min.js"></script>
+<script>
+
+function validarLetras(texto) {
+    return /^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$/.test(texto);
+}
+
+    function validarTelefono(telefono) {
+        return /^\d{4}-\d{4}$/.test(telefono);
+    }
+
+    function validarDPI(dpi) {
+    return /^[0-9]{13}$/.test(dpi);
+}
+
+function validarNIT(nit) {
+    return /^[0-9]+[a-zA-Z]*$/.test(nit);
+}
+
+
+
+    document.getElementById("myFormInsert").addEventListener("submit", function (event) {
+
+        var nombre_empleado = document.getElementById("nombre_empleado").value;
+        var apellido_empleado = document.getElementById("apellido_empleado").value;
+        var nit_empleado = document.getElementById("nit_empleado").value;
+        var dpi_empleado = document.getElementById("dpi_empleado").value;
+        var telefono_empleado = document.getElementById("telefono_empleado").value;
+
+        if (!validarTelefono(telefono_empleado)) {
+            document.getElementById("telefono_empleadoError").innerText = "Por favor, ingresa teléfono(8 dígitos) formato(8888-8888).";
+            event.preventDefault();
+            return false;
+        } else {
+            document.getElementById("telefono_empleadoError").innerText = "";
+        }
+
+        if (!validarLetras(nombre_empleado)) {
+        document.getElementById("nombre_empleadoError").innerText = "Por favor, ingresa solo letras.";
+        event.preventDefault();
+        return false;
+        } else {
+            document.getElementById("nombre_empleadoError").innerText = "";
+        }
+
+        if (!validarLetras(apellido_empleado)) {
+        document.getElementById("apellido_empleadoError").innerText = "Por favor, ingresa solo letras.";
+        event.preventDefault();
+        return false;
+        } else {
+            document.getElementById("apellido_empleadoError").innerText = "";
+        }
+
+        if (!validarNIT(nit_empleado)) {
+        document.getElementById("nit_empleadoError").innerText = "Por favor, verificar NIT.";
+        event.preventDefault();
+        return false;
+        } else {
+            document.getElementById("nit_empleadoError").innerText = "";
+        }
+
+        if (!validarDPI(dpi_empleado)) {
+        document.getElementById("dpi_empleadoError").innerText = "Por favor, Verificar DPI.";
+        event.preventDefault();
+        return false;
+        } else {
+            document.getElementById("dpi_empleadoError").innerText = "";
+        }
+
+        return true;
+    });
+</script>
 
 </body>
 

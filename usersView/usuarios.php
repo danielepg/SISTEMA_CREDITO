@@ -91,12 +91,12 @@ while ($row = $ver_usu->fetch_assoc()) {
 
         <div class="mb-2">
             <label for="uno" class="form-label">Nombre del usuario</label>
-            <input class="form-control" type="text" id="uno" name="nombre_usuario">
+            <input class="form-control" type="text" id="uno" name="nombre_usuario" required maxlength="20" minlength="8">
         </div>
 
         <div class="mb-2">
             <label for="dos" class="form-label">Contraseña</label>
-            <input class="form-control" type="password" id="dos" name="password_usuario">
+            <input class="form-control" type="password" id="dos" name="password_usuario" required maxlength="20" minlength="8">
         </div>
 
         <div class="mb-2">
@@ -106,7 +106,7 @@ while ($row = $ver_usu->fetch_assoc()) {
 
         <div class="mb-2">
             <label for="cuatro" class="form-label">Nombre del usuario</label>
-            <select class="form-control" id="cuatro" name="rol_usuario">
+            <select class="form-control" id="cuatro" name="rol_usuario" required>
                 <option></option>
                 <option>Administrador</option>
                 <option>Usuario</option>
