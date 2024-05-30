@@ -47,7 +47,6 @@
                 <th>DIRECCION</th>
                 <th>TELEFONO</th>
                 <th>ESTADO</th>
-                <th>ACCIONES</th>
             </tr>
         </thead>
         <tbody>
@@ -67,18 +66,6 @@
                     <td><?php echo $row['Telefono']  ?></td>
                     <td><?php echo $row['Estado']  ?></td>
                     
-                    <td>
-
-                    <div class="btn-group">
-                    <a href="editcliente.php?ID=<?php echo $row['ClienteID']?>" class="btn btn-primary">
-                        <i class="fas fa-marker"></i>
-                        </a>
-                        <a href="deletecliente.php?ID=<?php echo $row['ClienteID']?>" class="btn btn-danger">
-                        <i class="far fa-trash-alt"></i>
-                    </a>
-                    </div>                 
-
-                    </td>
                 </tr>
             <?php } ?>
 
