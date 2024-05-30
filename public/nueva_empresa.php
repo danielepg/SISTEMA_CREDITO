@@ -25,12 +25,10 @@
     }
 </style>
 <body>
-
-<h2 class="container shadow p-2 bg-white text-center" style="margin-top: 20px;">Nueva Sucursal</h2>
-
-<div class="container shadow p-5 bg-white" style="margin-top: 20px;">
-
+<br>
 <form action="../backend/insert_empresa.php" method="POST" id="empresaForm">
+<div class="shadow row g-3 p-5" style="margin: 0 10%; background-color: #e8ebef !important;">
+                <h2>Nueva Empresa</h2>
     <div class="row mt-3">
         <div class="form-group col-md-6">
             <label for="nombre_empresa">Nombre:</label>
@@ -73,8 +71,9 @@
     </div>    
     <br>
     <button name="ingresar" value="ingresar" type="submit" class="btn btn-primary">Ingresar</button>
+    </div>
 </form>
-</div>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {

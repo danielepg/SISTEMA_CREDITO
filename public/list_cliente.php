@@ -20,17 +20,21 @@
 <body class=" bg-white">
 
 <br>
-<h2 class="text-center">Lista Clientes</h2>
-</br>
+<h3 class="text-center float-center"><strong> Lista Clientes. </strong></h3>
+<div style="clear: both;"></div>
 
-    <div class="container p-5" style="background-color: #e8ebef !important;">
+<div class="container px-4 py-1 shadow" style="background-color: #e8ebef !important;">
 
-    <form class="w-100">
-        <label class="form-label">Filtro clientes</label>
-    <input class="form-control me-2 light-table-filter w-75" id="myInput" onkeyup="myFunction()">
-    <hr>
-    </form>    
+    <form class="w-100 px-3">
+        <label class="form-label">Filtro de clientes</label>
+    <input class="form-control me-2 light-table-filter w-50" id="myInput" placeholder="Escribe algo ..." onkeyup="myFunction()">
+
+    </form>
+    </div>
+    
+    <br>
     <br/>
+    <div class="container px-4 py-1 shadow" style="background-color: #e8ebef !important;">
         
         <table class="table table-hover table_id" id="myTable">
         <thead class="">

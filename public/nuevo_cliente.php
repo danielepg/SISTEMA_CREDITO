@@ -79,6 +79,7 @@
             </div>
         </form>
     </div>
+    <br>
 
     <footer style="background-color: rgb(31 142 55); border-top-right-radius:20px; border-top-left-radius:20px;" class="shadow py-2 position-fixed bottom-0 start-0 end-0 ">
         <h5 class="text-center text-white">&copy 2024</h5>

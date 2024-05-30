@@ -39,9 +39,10 @@ if ($result->num_rows > 0) {
     // Mostrar datos en cajas de texto
     while($row = $result->fetch_assoc()) {
         ?>
-        
-        <div class="container shadow p-5 bg-white" style="margin-top: 20px; border-radius: 10px;">
-        <h1 class="text-center" for="EMPRESA">EMPRESA</h1>
+        <br>
+        <br>
+        <div class="container px-4 py-1 shadow" style="background-color: #e8ebef !important; border-radius: 5px;">
+        <h2>Empresa</h2>
         <br>
 
         <a class="btn btn-primary" href="nueva_empresa.php"><i class="bi bi-building-fill-add"></i> Ingresar Sucursal</a>
@@ -81,61 +82,6 @@ if ($result->num_rows > 0) {
 }
 ?>
 
-
-    <div class="container shadow p-5 bg-white" style="margin-top: 20px; border-radius: 10px;">
-    <h1 class="text-center">SUCURSALES</h1>
-    <br>
-    <form class="d-flex">
-        
-    <input class="form-control me-2 light-table-filter" placeholder="Buscar" id="myInput" onkeyup="myFunction()">
-    <hr>
-    </form>    
-    <br/>
-        
-        <table class="table table-hover table_id" id="myTable">
-        <thead class="table-dark">
-            <tr>
-                <th>ID</th>
-                <th>NOMBRE</th>
-                <th>DIRECCION</th>
-                <th>TELEFONO</th>
-                <th>NIT</th>
-                <th>CORREO</th>
-                <th>ACCIONES</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php 
-                $query = "SELECT * FROM empresa";
-                $resultado_cliente = mysqli_query($conn, $query);
-
-                while($row = mysqli_fetch_array($resultado_cliente)) { ?>
-
-                <tr>
-                    <td><?php echo $row['empresaID'] ?></td>
-                    <td><?php echo $row['nombre_empresa']  ?></td>
-                    <td><?php echo $row['direccion_empresa']  ?></td>
-                    <td><?php echo $row['telefono_emp']  ?></td>
-                    <td><?php echo $row['nit']  ?></td>
-                    <td><?php echo $row['correo']  ?></td>                    
-                    <td>
-
-                    <div class="">
-                    <a href="edit_empresa.php?empresaID=<?php echo $row['empresaID']?>" class="btn btn-warning">
-                    <i class="bi bi-pencil-square"></i>
-                        </a>
-                        <a href="deletecliente.php?empresaID=<?php echo $row['empresaID']?>" class="btn btn-danger">
-                        <i class="bi bi-trash-fill"></i>
-                    </a>
-                    </div>                 
-
-                    </td>
-                </tr>
-            <?php } ?>
-
-        </tbody>
-        </table>
-    </div>
 
 <script>
 function myFunction() {
