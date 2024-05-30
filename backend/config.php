@@ -2,7 +2,7 @@
 // Datos de conexión
 $servername = "localhost";
 $username = "root";
-$password = "adminx";
+$password = "";
 $database = "creditodbfinal";
 
 // Crear conexión
