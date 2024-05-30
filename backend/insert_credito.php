@@ -97,18 +97,18 @@ if (isset($_POST['ingresar'])) {
 
         // Ejecutar la declaración
         if ($stmt22->execute()) {
-            echo "Datos insertados correctamente." . PHP_EOL;
+            //echo "Datos insertados correctamente." . PHP_EOL;
         } else {
-            echo "Error al insertar datos: " . $stmt22->error . PHP_EOL;
+            //echo "Error al insertar datos: " . $stmt22->error . PHP_EOL;
         }
     }
     // Cerrar la declaración y la conexión
     $stmt->close();
     $stmt22->close();
-    $conn->close();
+
 
     mysqli_query($conn, "UPDATE clientes SET Estado = 'C' WHERE ClienteID = ".$ClienteID."");
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    $conn->close();
     header("Location: ../public/list_creditos.php");
 }

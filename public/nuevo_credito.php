@@ -4,15 +4,6 @@
 	$sql="SELECT ClienteID, Nombre, Nit from Clientes";
 	$result=mysqli_query($conn,$sql);
 
-
-    $rutaArchivo = '../PDF/1.pdf';
-
-if (file_exists($rutaArchivo)) {
-    echo "El archivo existe.";
-} else {
-    echo "El archivo no existe.";
-}
-
 ?>
 
 <html>
@@ -45,11 +36,11 @@ select {
 }
 </style>
 
-<body>
+<body class="bg-white">
 
-    <h2 class="container shadow p-2 bg-white text-center" style="margin-top: 20px;">CREDITOS</h2>
+    <h2 class="container p-2 text-center" style="margin-top: 20px;">CREDITOS</h2>
 
-    <div class="container shadow p-5 bg-white" style="margin-top: 20px;">
+    <div class="container shadow p-5" style="margin-top: 20px; background-color: #e8ebef !important;">
         <form action="../backend/insert_credito.php" method="POST" enctype="multipart/form-data">
             <div class="row mt-3">
                 <div class="form-group col-md-6">

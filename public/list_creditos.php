@@ -56,10 +56,11 @@ include '../backend/config.php'; ?>
                 <th>ID</th>
                 <th>Cliente</th>
                 <th>Credito</th>
+                <th>Credito Final</th>
                 <th>Monto Parcial</th>
                 <th>Plazos</th>
                 <th></th>
-                <th>ACCIONES</th>
+                <th></th>
             </tr>
         </thead>
         <tbody class="">
@@ -69,17 +70,19 @@ include '../backend/config.php'; ?>
 
                 $resultado_cliente = mysqli_query($conn, $query);
 
-                while($row = mysqli_fetch_array($resultado_cliente)) { ?>
+                foreach($resultado_cliente as $row) { ?>
 
                 <tr>
                     <td><?php echo $row['CreditoID']  ?></td>
-                    <td><?php echo $row['Nombre']. $row['Apellido'] ?></td>                    
-                    <td>Q. <?php echo $row['Monto']  ?></td>
+                    <td><?php echo $row['Nombre']. $row['Apellido'] ?></td>
+                    <td>Q. <?php echo $row['Monto']  ?></td>                    
+                    <td>Q. <?php echo $row['MontoFinal']  ?></td>
                     <td>Q. <?php echo $row['Monto_parcial']  ?></td>
                     <td><?php echo $row['Plazos']  ?> meses</td>
-                    <td><a href="../public/list_pagos.php?id=<?php echo $row['CreditoID']  ?>" class="btn bg-white border">Ver Pagos</a></td>
+                    <td style="width: 140px;"><a href="../public/list_pagos.php?id=<?php echo $row['CreditoID']  ?>" class="btn bg-white border">Ver Pagos</a></td>
+                    <td style="width: 140px;"><a href="../PDF/<?php echo $row['CreditoID']  ?>.pdf" target="_blank" class="btn bg-white border">PDF</a></td>
                     
-                    <td>
+                    <!--<td>
 
                     <div class="btn-group">
                     <a href="editcliente.php?ID=<?php echo $row['ClienteID']?>" class="btn btn-primary">
@@ -90,7 +93,7 @@ include '../backend/config.php'; ?>
                     </a>
                     </div>                 
 
-                    </td>
+                    </td>-->
                 </tr>
             <?php } ?>
 

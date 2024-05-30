@@ -173,7 +173,7 @@ a:hover {
 
 </head>
 
-<body class="bg-body-secondary position-fixed top-0 end-0 start-0 bottom-0 d-flex justify-content-center align-items-center">
+<body style="background-color:rgb(69 215 129);" class="position-fixed top-0 end-0 start-0 bottom-0 d-flex justify-content-center align-items-center">
 <div class="login-container">
 <form action="index.php"method="POST">
         <div class="login-box">

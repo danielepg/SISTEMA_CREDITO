@@ -10,24 +10,30 @@
 
     <link rel="stylesheet" href="../public/css/DASHBOARD.css">
     <link rel="stylesheet" href="../bootstrap532/css/bootstrap.min.css">
-
+    <style>
+        table th,td{
+            background-color: #e8ebef !important;
+        }
+    </style>
 </head>
 
-<body class=" bg-body-secondary ">
+<body class=" bg-white">
 
-<h2 class="text-center">Clientes</h2>
+<br>
+<h2 class="text-center">Lista Clientes</h2>
 </br>
 
-    <div class="container-fluid px-3">
+    <div class="container p-5" style="background-color: #e8ebef !important;">
 
-    <form class="d-flex">
-    <input class="form-control me-2 light-table-filter" id="myInput" onkeyup="myFunction()">
+    <form class="w-100">
+        <label class="form-label">Filtro clientes</label>
+    <input class="form-control me-2 light-table-filter w-75" id="myInput" onkeyup="myFunction()">
     <hr>
     </form>    
     <br/>
         
         <table class="table table-hover table_id" id="myTable">
-        <thead class="table-dark">
+        <thead class="">
             <tr>
                 <th>ID</th>
                 <th>NOMBRE</th>
@@ -76,6 +82,11 @@
         </table>
     </div>
 
+    <footer style="background-color: rgb(31 142 55); border-top-right-radius:20px; border-top-left-radius:20px;" class=" shadow py-2 position-fixed bottom-0 start-0 end-0 ">
+    <h5 class="text-center text-white">&copy 2024</h5>
+</footer>
+
+
 <script>
 function myFunction() {
   var input, filter, table, tr, td, i, j, txtValue;
@@ -83,7 +94,7 @@ function myFunction() {
   filter = input.value.toUpperCase();
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
+  for (i = 1; i < tr.length; i++) {
     var display = "none";
     for (j = 0; j < 8; j++) {  // Cambia el número 5 por la cantidad de columnas que deseas filtrar
       td = tr[i].getElementsByTagName("td")[j];
@@ -103,15 +114,6 @@ function myFunction() {
 <script src="script.js"></script>
 <script src="../js/bootstrap.bundle.min.js"></script>
 
-<nav aria-label="Page navigation example" class="px-3">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-    </nav>
 
 </body>
 </html>
